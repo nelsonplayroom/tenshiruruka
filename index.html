@@ -213,7 +213,7 @@ nav a:hover {
   font-size: clamp(13px, 2.5vw, 17px);
   color: #6a4a9a;
   letter-spacing: 0.25em;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   opacity: 0;
   -webkit-animation: fadeIn 1s ease both;
   animation: fadeIn 1s ease both;
@@ -226,9 +226,10 @@ nav a:hover {
   position: relative;
   width: min(520px, 92vw);
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  margin-top: 24px;
+  margin-top: 32px;
   opacity: 0;
   -webkit-animation: fadeIn 1s ease both;
   animation: fadeIn 1s ease both;
@@ -238,12 +239,13 @@ nav a:hover {
 
 /* Symbol mark (clickable) */
 .symbol-wrapper {
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
   z-index: 5;
   cursor: pointer;
+  margin-bottom: 12px;
 }
 
 .symbol-img {
@@ -254,6 +256,7 @@ nav a:hover {
   animation: spinSlow 20s linear infinite;
   transition: transform 0.3s ease, filter 0.3s ease;
   filter: drop-shadow(0 0 12px rgba(130,90,200,0.5));
+  display: block;
 }
 
 .symbol-wrapper:hover .symbol-img {
