@@ -1055,23 +1055,38 @@ footer {
     <span class="section-title-jp reveal reveal-delay-1">バースデーイラスト</span>
     <div class="section-divider reveal reveal-delay-2"><span>✦</span></div>
 
-    <div class="birthday-frame reveal reveal-delay-3">
-      <div class="birthday-sparkles"></div>
-      <div class="birthday-img-wrapper">
-        <img src="IMG_7132.jpeg" alt="お誕生日記念特別イラスト">
-        <div class="birthday-img-overlay"></div>
-      </div>
+    <!-- ポップアップ問いかけ -->
+    <div class="birthday-gate reveal reveal-delay-3" id="birthdayGate">
+      <div class="birthday-gate-deco"><span>✦</span></div>
+      <p class="birthday-gate-question">2匹と1人の旅を<br>見届けますか？</p>
+      <p class="birthday-gate-sub">— a special birthday illustration —</p>
+      <button class="birthday-reveal-btn" id="birthdayRevealBtn">
+        <span class="btn-star">✦</span>
+        見届ける
+        <span class="btn-star">✦</span>
+      </button>
     </div>
 
-    <div class="birthday-caption reveal reveal-delay-4">
-      <span class="birthday-caption-title">バースデーイラスト</span>
-      <span class="birthday-caption-en">Birthday Illustration</span>
-      <div class="birthday-caption-dots">
-        <span></span><span></span><span></span>
+    <!-- イラスト表示エリア（ボタン押下後に出現） -->
+    <div class="birthday-reveal-area" id="birthdayRevealArea">
+      <div class="birthday-frame">
+        <div class="birthday-sparkles"></div>
+        <div class="birthday-img-wrapper">
+          <img src="IMG_7132.JPG" alt="お誕生日記念特別イラスト">
+          <div class="birthday-img-overlay"></div>
+        </div>
+      </div>
+      <div class="birthday-caption">
+        <span class="birthday-caption-title">バースデーイラスト</span>
+        <span class="birthday-caption-en">Birthday Illustration</span>
+        <div class="birthday-caption-dots">
+          <span></span><span></span><span></span>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <section id="links">
   <div class="section-inner">
