@@ -579,14 +579,157 @@ section {
   max-width: 900px;
 }
 
+/* --- ポップアップ問いかけエリア --- */
+.birthday-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 56px 32px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(160,130,210,0.28);
+  box-shadow: 0 8px 40px rgba(120,80,200,0.10);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景の淡いキラキラ */
+.birthday-gate::before {
+  content: '✦';
+  position: absolute;
+  top: 18px; left: 24px;
+  font-size: 14px;
+  color: rgba(160,130,210,0.35);
+  animation: sparkleFloat 3.5s ease-in-out infinite;
+}
+.birthday-gate::after {
+  content: '✦';
+  position: absolute;
+  bottom: 18px; right: 24px;
+  font-size: 18px;
+  color: rgba(160,130,210,0.30);
+  animation: sparkleFloat 4.5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.birthday-gate-deco {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0.55;
+}
+.birthday-gate-deco::before,
+.birthday-gate-deco::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(140,100,210,0.7));
+}
+.birthday-gate-deco::after {
+  background: linear-gradient(to right, rgba(140,100,210,0.7), transparent);
+}
+.birthday-gate-deco span {
+  font-size: 20px;
+  color: rgba(140,100,210,0.6);
+}
+
+.birthday-gate-question {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(17px, 3.5vw, 26px);
+  color: #3a2460;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.birthday-gate-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: #9b7cc8;
+  letter-spacing: 0.3em;
+  font-style: italic;
+  margin-top: -20px;
+}
+
+.birthday-reveal-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 52px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #8b60c8 0%, #6a9ed4 100%);
+  color: #fff;
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  box-shadow: 0 6px 28px rgba(120,80,200,0.35), 0 2px 8px rgba(120,80,200,0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  overflow: hidden;
+}
+
+/* ボタン光沢 */
+.birthday-reveal-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -60%;
+  width: 40%;
+  height: 100%;
+  background: rgba(255,255,255,0.25);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+.birthday-reveal-btn:hover::before {
+  left: 140%;
+}
+
+.birthday-reveal-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 40px rgba(120,80,200,0.50), 0 4px 12px rgba(120,80,200,0.3);
+  filter: brightness(1.08);
+}
+
+.birthday-reveal-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ボタン左右の装飾 */
+.btn-star {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+@keyframes sparkleFloat {
+  0%, 100% { opacity: 0.4; transform: translateY(0) scale(1); }
+  50%       { opacity: 1;   transform: translateY(-8px) scale(1.2); }
+}
+
+/* --- イラスト表示エリア（初期非表示） --- */
+.birthday-reveal-area {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.birthday-reveal-area.shown {
+  display: flex;
+  animation: birthdayReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .birthday-frame {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
-/* 外枠の装飾リング */
 .birthday-frame::before {
   content: '';
   position: absolute;
@@ -607,7 +750,6 @@ section {
   z-index: 1;
 }
 
-/* キラキラ装飾 */
 .birthday-sparkles {
   position: absolute;
   inset: -60px;
@@ -621,27 +763,19 @@ section {
   position: absolute;
   color: rgba(160,130,210,0.55);
   font-size: 20px;
-  -webkit-animation: sparkleFloat 4s ease-in-out infinite;
   animation: sparkleFloat 4s ease-in-out infinite;
 }
 
 .birthday-sparkles::before {
-  top: 30px;
-  left: 20px;
+  top: 30px; left: 20px;
   font-size: 16px;
   animation-delay: 0s;
 }
 
 .birthday-sparkles::after {
-  bottom: 30px;
-  right: 20px;
+  bottom: 30px; right: 20px;
   font-size: 22px;
   animation-delay: 2s;
-}
-
-@keyframes sparkleFloat {
-  0%, 100% { opacity: 0.4; transform: translateY(0) scale(1); }
-  50%       { opacity: 1;   transform: translateY(-8px) scale(1.2); }
 }
 
 .birthday-img-wrapper {
@@ -654,8 +788,6 @@ section {
     0 20px 60px rgba(120,80,200,0.22),
     0 4px 16px rgba(120,80,200,0.12),
     inset 0 0 0 1px rgba(255,255,255,0.6);
-  -webkit-animation: birthdayReveal 1s ease both;
-  animation: birthdayReveal 1s ease both;
 }
 
 .birthday-img-wrapper img {
@@ -669,25 +801,20 @@ section {
   transform: scale(1.02);
 }
 
-/* 画像下部のグラデーションオーバーレイ */
 .birthday-img-overlay {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   height: 120px;
   background: linear-gradient(to bottom, transparent, rgba(240,238,248,0.55));
   pointer-events: none;
 }
 
 @keyframes birthdayReveal {
-  from { opacity: 0; transform: translateY(32px) scale(0.97); }
+  from { opacity: 0; transform: translateY(36px) scale(0.96); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* キャプション */
 .birthday-caption {
-  margin-top: 28px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -928,7 +1055,7 @@ footer {
     <a href="#gallery">Gallery</a>
   </div>
   <div class="nav-center">
-    <img src="ネームロゴダーク.png" alt="天紫月華" class="nav-logo-img">
+    <img src="ネームロゴダーク.png" alt="天紫月華" class="nav-logo-img">
   </div>
   <div class="nav-right">
     <a href="#links">Links</a>
@@ -948,7 +1075,7 @@ footer {
   </svg>
 
   <div class="hero-content">
-    <img src="ネームロゴダーク.png" alt="天紫月華 Tenshi Ruruka" class="hero-name-logo">
+    <img src="ネームロゴダーク.png" alt="天紫月華 Tenshi Ruruka" class="hero-name-logo">
     <p class="hero-catchcopy">禁忌を犯した哀れな元猫</p>
     <div class="hero-visual-wrapper">
       <div class="symbol-wrapper" id="symbolBtn" title="クリックで衣装チェンジ">
@@ -974,7 +1101,7 @@ footer {
       <div class="about-illust reveal reveal-delay-1">
         <img src="IMG_4418.jpeg" alt="天紫月華イラスト">
         <div class="about-bust">
-          <img src="埋め込みバストアップ.jpeg" alt="天紫月華バストアップ">
+          <img src="埋め込みバストアップ.jpeg" alt="天紫月華バストアップ">
         </div>
       </div>
       <div class="about-text reveal reveal-delay-2">
@@ -1004,45 +1131,45 @@ footer {
     <span class="section-title-jp reveal reveal-delay-1">衣装ギャラリー</span>
     <div class="section-divider reveal reveal-delay-2"><span>✦</span></div>
     <div class="costume-grid">
-      <div class="costume-card reveal reveal-delay-1" data-img="立ち絵ノーマル.png">
-        <img src="立ち絵ノーマル.png" alt="ノーマル">
-        <div class="costume-label">初期衣装</div>
+      <div class="costume-card reveal reveal-delay-1" data-img="立ち絵ノーマル②.png">
+        <img src="立ち絵ノーマル②.png" alt="ノーマル②">
+        <div class="costume-label">ノーマル②</div>
       </div>
       <div class="costume-card reveal reveal-delay-2" data-img="立ち絵初期.png">
-        <img src="立ち絵初期.png" alt="サイバーアイドル">
-        <div class="costume-label">サイバーアイドル</div>
+        <img src="立ち絵初期.png" alt="初期">
+        <div class="costume-label">初期</div>
       </div>
-      <div class="costume-card reveal reveal-delay-3" data-img="立ち絵ノーマル②.png">
-        <img src="立ち絵ノーマル②.png" alt="旅猫衣装">
-        <div class="costume-label">旅猫衣装</div>
+      <div class="costume-card reveal reveal-delay-3" data-img="立ち絵ノーマル.png">
+        <img src="立ち絵ノーマル.png" alt="ノーマル">
+        <div class="costume-label">ノーマル</div>
       </div>
-      <div class="costume-card reveal reveal-delay-4" data-img="立ち絵軍曹.png">
+      <div class="costume-card reveal reveal-delay-4" data-img="立ち絵黒ドレス.png">
+        <img src="立ち絵黒ドレス.png" alt="黒ドレス">
+        <div class="costume-label">黒ドレス</div>
+      </div>
+      <div class="costume-card reveal reveal-delay-1" data-img="立ち絵ギャルピ.png">
+        <img src="立ち絵ギャルピ.png" alt="キャリバー">
+        <div class="costume-label">ギャルピース</div>
+      </div>
+      <div class="costume-card reveal reveal-delay-2" data-img="立ち絵軍曹.png">
         <img src="立ち絵軍曹.png" alt="軍曹">
         <div class="costume-label">軍曹</div>
       </div>
-      <div class="costume-card reveal reveal-delay-1" data-img="立ち絵ギャルピ.png">
-        <img src="立ち絵ギャルピ.png" alt="キャリバー">
-        <div class="costume-label">制服</div>
-      </div>
-      <div class="costume-card reveal reveal-delay-2" data-img="立ち絵黒ドレス.png">
-        <img src="立ち絵黒ドレス.png" alt="黒ドレス">
-        <div class="costume-label">黒ドレス</div>
-      </div>
-      <div class="costume-card reveal reveal-delay-3" data-img="立ち絵白ドレス.png">
-        <img src="立ち絵白ドレス.png" alt="白ドレス">
-        <div class="costume-label">白ドレス</div>
+      <div class="costume-card reveal reveal-delay-3" data-img="立ち絵ゆるふわ.png">
+        <img src="立ち絵ゆるふわ.png" alt="ゆるふわ">
+        <div class="costume-label">ゆるふわ</div>
       </div>
       <div class="costume-card reveal reveal-delay-4" data-img="立ち絵ルームウェア.png">
         <img src="立ち絵ルームウェア.png" alt="ルームウェア">
         <div class="costume-label">ルームウェア</div>
       </div>
-      <div class="costume-card reveal reveal-delay-1" data-img="立ち絵ゆるふわ.png">
-        <img src="立ち絵ゆるふわ.png" alt="春桜衣装">
-        <div class="costume-label">春桜衣装</div>
+      <div class="costume-card reveal reveal-delay-1" data-img="立ち絵白ドレス.png">
+        <img src="立ち絵白ドレス.png" alt="白ドレス">
+        <div class="costume-label">白ドレス</div>
       </div>
       <div class="costume-card reveal reveal-delay-2" data-img="立ち絵和装.png">
-        <img src="立ち絵和装.png" alt="和装メイド">
-        <div class="costume-label">和装メイド</div>
+        <img src="立ち絵和装.png" alt="和装">
+        <div class="costume-label">和装</div>
       </div>
     </div>
   </div>
@@ -1055,19 +1182,33 @@ footer {
     <span class="section-title-jp reveal reveal-delay-1">バースデーイラスト</span>
     <div class="section-divider reveal reveal-delay-2"><span>✦</span></div>
 
-    <div class="birthday-frame reveal reveal-delay-3">
-      <div class="birthday-sparkles"></div>
-      <div class="birthday-img-wrapper">
-        <img src="IMG_7132.jpeg" alt="お誕生日記念特別イラスト">
-        <div class="birthday-img-overlay"></div>
-      </div>
+    <!-- ポップアップ問いかけ -->
+    <div class="birthday-gate reveal reveal-delay-3" id="birthdayGate">
+      <div class="birthday-gate-deco"><span>✦</span></div>
+      <p class="birthday-gate-question">2匹と1人の旅を<br>見届けますか？</p>
+      <p class="birthday-gate-sub">— a special birthday illustration —</p>
+      <button class="birthday-reveal-btn" id="birthdayRevealBtn">
+        <span class="btn-star">✦</span>
+        見届ける
+        <span class="btn-star">✦</span>
+      </button>
     </div>
 
-    <div class="birthday-caption reveal reveal-delay-4">
-      <span class="birthday-caption-title">バースデーイラスト</span>
-      <span class="birthday-caption-en">Birthday Illustration</span>
-      <div class="birthday-caption-dots">
-        <span></span><span></span><span></span>
+    <!-- イラスト表示エリア（ボタン押下後に出現） -->
+    <div class="birthday-reveal-area" id="birthdayRevealArea">
+      <div class="birthday-frame">
+        <div class="birthday-sparkles"></div>
+        <div class="birthday-img-wrapper">
+          <img src="IMG_7132.JPG" alt="お誕生日記念特別イラスト">
+          <div class="birthday-img-overlay"></div>
+        </div>
+      </div>
+      <div class="birthday-caption">
+        <span class="birthday-caption-title">バースデーイラスト</span>
+        <span class="birthday-caption-en">Birthday Illustration</span>
+        <div class="birthday-caption-dots">
+          <span></span><span></span><span></span>
+        </div>
       </div>
     </div>
   </div>
@@ -1161,9 +1302,9 @@ footer {
 })();
 
 var costumes = [
-  '立ち絵ノーマル.png','立ち絵初期.png','立ち絵ノーマル②.png',
-  '立ち絵ギャルピ.png','立ち絵軍曹.png',
-  '立ち絵ゆるふわ.png','立ち絵ルームウェア.png','立ち絵黒ドレス.png','立ち絵白ドレス.png','立ち絵和装.png'
+  '立ち絵ノーマル②.png','立ち絵初期.png','立ち絵ノーマル.png',
+  '立ち絵黒ドレス.png','立ち絵ギャルピ.png','立ち絵軍曹.png',
+  '立ち絵ゆるふわ.png','立ち絵ルームウェア.png','立ち絵白ドレス.png','立ち絵和装.png'
 ];
 var currentCostume = 0;
 var charaEl = document.getElementById('heroChara');
@@ -1194,6 +1335,30 @@ modalClose.addEventListener('click', closeModal);
 modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 
+// ===== BIRTHDAY REVEAL =====
+var birthdayRevealBtn = document.getElementById('birthdayRevealBtn');
+var birthdayGate = document.getElementById('birthdayGate');
+var birthdayRevealArea = document.getElementById('birthdayRevealArea');
+
+if (birthdayRevealBtn) {
+  birthdayRevealBtn.addEventListener('click', function() {
+    // ゲートをフェードアウト
+    birthdayGate.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    birthdayGate.style.opacity = '0';
+    birthdayGate.style.transform = 'translateY(-12px) scale(0.97)';
+    setTimeout(function() {
+      birthdayGate.style.display = 'none';
+      // イラストエリアを表示
+      birthdayRevealArea.classList.add('shown');
+      // スムーズスクロール
+      setTimeout(function() {
+        birthdayRevealArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }, 480);
+  });
+}
+
+// ===== SCROLL REVEAL =====
 var reveals = document.querySelectorAll('.reveal');
 function checkReveal() {
   var windowHeight = window.innerHeight;
