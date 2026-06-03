@@ -617,7 +617,7 @@ footer {
             <div class="slide-cell"><img src="IMG_7155.jpeg" alt="バースデーイラスト 10"></div>
             <div class="slide-cell"><img src="IMG_7156.jpeg" alt="バースデーイラスト 11"></div>
             <div class="slide-cell"><img src="IMG_7157.jpeg" alt="バースデーイラスト 12"></div>
-          </div>
+           </div>
           <button class="slideshow-btn prev" id="slidePrev" aria-label="前の画像">
             <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
           </button>
@@ -629,8 +629,8 @@ footer {
         <div class="slideshow-counter" id="slideshowCounter">1 / 12</div>
       </div>
       <div class="birthday-caption">
-        <span class="birthday-caption-title">バースデーイラスト＋α</span>
-        <span class="birthday-caption-en">Birthday Illustration＋α</span>
+        <span class="birthday-caption-title">バースデーイラスト</span>
+        <span class="birthday-caption-en">Birthday Illustration</span>
         <div class="birthday-caption-dots"><span></span><span></span><span></span></div>
       </div>
     </div>
@@ -753,8 +753,8 @@ footer {
 /* ===== COSTUME CHANGE ===== */
 var costumes=[
   '立ち絵ノーマル.png','立ち絵初期.png','立ち絵ノーマル②.png',
-  '立ち絵軍曹.png','立ち絵ギャルピ.png',
-  '立ち絵黒ドレス.png','立ち絵白ドレス.png','立ち絵ルームウェア.png','立ち絵ゆるふわ.png','立ち絵和装.png'
+  '立ち絵軍曹.png','立ち絵ギャルピ.png',
+  '立ち絵黒ドレス.png','立ち絵白ドレス.png','立ち絵ルームウェア.png','立ち絵ゆるふわ.png','立ち絵和装.png'
 ];
 var currentCostume=0;
 var charaEl=document.getElementById('heroChara');
@@ -801,8 +801,8 @@ function initSlideshow(){
   if(slideshowInited) return;
   slideshowInited=true;
   var track=document.getElementById('slideshowTrack');
-  var imgs=track.querySelectorAll('img');
-  var total=imgs.length;
+  var cells=track.querySelectorAll('.slide-cell');
+  var total=cells.length;
   var dotsContainer=document.getElementById('slideshowDots');
   var counter=document.getElementById('slideshowCounter');
 
