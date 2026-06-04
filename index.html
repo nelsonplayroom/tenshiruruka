@@ -295,7 +295,7 @@ section { position:relative;z-index:2;padding:80px 24px; }
   width:100%;
   flex-shrink:0;
   display:flex;
-  justify-content:center;
+  justify-content:flex-start;
   align-items:center;
   padding:4px 8px;
 }
@@ -353,9 +353,9 @@ section { position:relative;z-index:2;padding:80px 24px; }
   display:flex;flex-direction:column;align-items:center;gap:10px;
   border:1.5px solid;
 }
-.guideline-card.ok   { background:rgba(220,245,235,.7);border-color:rgba(60,180,120,.35); }
-.guideline-card.cond { background:rgba(255,248,220,.7);border-color:rgba(210,160,30,.35); }
-.guideline-card.ng   { background:rgba(255,230,230,.7);border-color:rgba(210,60,60,.35); }
+.guideline-card.ok   { background:rgba(210,200,245,.45);border-color:rgba(140,100,210,.35); }
+.guideline-card.cond { background:rgba(230,218,255,.45);border-color:rgba(160,120,220,.28); }
+.guideline-card.ng   { background:rgba(245,235,255,.45);border-color:rgba(180,140,230,.28); }
 .guideline-card-title {
   font-family:'Shippori Mincho',serif;font-size:14px;font-weight:700;
   color:#3a2a5a;letter-spacing:.08em;
@@ -365,9 +365,9 @@ section { position:relative;z-index:2;padding:80px 24px; }
   font-family:'Shippori Mincho',serif;font-size:12px;font-weight:700;letter-spacing:.05em;
   padding:3px 12px;border-radius:20px;
 }
-.guideline-badge.ok   { background:rgba(60,180,120,.15);color:#1a7a4a; }
-.guideline-badge.cond { background:rgba(210,160,30,.15);color:#8a6000; }
-.guideline-badge.ng   { background:rgba(210,60,60,.15);color:#b02020; }
+.guideline-badge.ok   { background:rgba(120,90,200,.15);color:#4a2f7a; }
+.guideline-badge.cond { background:rgba(160,120,220,.18);color:#6a3a9a; }
+.guideline-badge.ng   { background:rgba(180,140,230,.15);color:#7a4aaa; }
 .guideline-note {
   font-family:'Noto Serif JP',serif;font-size:11px;color:#6a5a8a;
   letter-spacing:.05em;line-height:1.7;
@@ -464,7 +464,7 @@ footer {
     <a href="#gallery">Gallery</a>
   </div>
   <div class="nav-center">
-    <img src="ネームロゴダーク.png" alt="天紫月華" class="nav-logo-img">
+    <img src="ネームロゴダーク.png" alt="天紫月華" class="nav-logo-img">
   </div>
   <div class="nav-right">
     <a href="#links">Links</a>
@@ -484,7 +484,7 @@ footer {
     <circle cx="600" cy="50" r="50" fill="rgba(180,155,230,0.08)"/>
   </svg>
   <div class="hero-content">
-    <img src="ネームロゴダーク.png" alt="天紫月華 Tenshi Ruruka" class="hero-name-logo">
+    <img src="ネームロゴダーク.png" alt="天紫月華 Tenshi Ruruka" class="hero-name-logo">
     <p class="hero-catchcopy">禁忌を犯した哀れな元猫</p>
     <div class="hero-visual-wrapper">
       <div class="symbol-wrapper" id="symbolBtn" title="クリックで衣装チェンジ">
@@ -554,16 +554,16 @@ footer {
         <img src="立ち絵軍曹.png" alt="軍曹">
         <div class="costume-label">軍曹</div>
       </div>
-      <div class="costume-card reveal reveal-delay-1" data-img="立ち絵白ドレス.png">
-        <img src="立ち絵白ドレス.png" alt="白ドレス">
+      <div class="costume-card reveal reveal-delay-1" data-img="立ち絵白ドレス.png">
+        <img src="立ち絵白ドレス.png" alt="白ドレス">
         <div class="costume-label">白ドレス</div>
       </div>
-      <div class="costume-card reveal reveal-delay-2" data-img="立ち絵黒ドレス.png">
-        <img src="立ち絵黒ドレス.png" alt="黒ドレス">
+      <div class="costume-card reveal reveal-delay-2" data-img="立ち絵黒ドレス.png">
+        <img src="立ち絵黒ドレス.png" alt="黒ドレス">
         <div class="costume-label">黒ドレス</div>
       </div>
-      <div class="costume-card reveal reveal-delay-3" data-img="立ち絵ギャルピ.png">
-        <img src="立ち絵ギャルピ.png" alt="制服">
+      <div class="costume-card reveal reveal-delay-3" data-img="立ち絵ギャルピ.png">
+        <img src="立ち絵ギャルピ.png" alt="制服">
         <div class="costume-label">制服</div>
       </div>
       <div class="costume-card reveal reveal-delay-4" data-img="立ち絵ルームウェア.png">
@@ -585,8 +585,8 @@ footer {
 <!-- BIRTHDAY ILLUSTRATION -->
 <section id="birthday">
   <div class="section-inner">
-    <h2 class="section-title reveal">Birthday Illustration＋α</h2>
-    <span class="section-title-jp reveal reveal-delay-1">バースデーイラスト＋α</span>
+    <h2 class="section-title reveal">Birthday Illustration</h2>
+    <span class="section-title-jp reveal reveal-delay-1">バースデーイラスト</span>
     <div class="section-divider reveal reveal-delay-2"><span>✦</span></div>
 
     <div class="birthday-gate reveal reveal-delay-3" id="birthdayGate">
@@ -605,7 +605,7 @@ footer {
       <div class="birthday-slideshow-wrap">
         <div class="birthday-slideshow" id="birthdaySlideshow">
           <div class="birthday-slideshow-track" id="slideshowTrack">
-             <div class="slide-cell" style="justify-content:center"><img src="IMG_7132.jpeg"  alt="お誕生日記念特別イラスト"></div>
+            <div class="slide-cell" style="justify-content:center"><img src="IMG_7132.JPG"  alt="お誕生日記念特別イラスト"></div>
             <div class="slide-cell"><img src="IMG_7146.jpeg" alt="バースデーイラスト 02"></div>
             <div class="slide-cell"><img src="IMG_7147.jpeg" alt="バースデーイラスト 03"></div>
             <div class="slide-cell"><img src="IMG_7148.jpeg" alt="バースデーイラスト 04"></div>
@@ -617,7 +617,7 @@ footer {
             <div class="slide-cell" style="justify-content:center"><img src="IMG_7155.jpeg" alt="バースデーイラスト 10"></div>
             <div class="slide-cell"><img src="IMG_7156.jpeg" alt="バースデーイラスト 11"></div>
             <div class="slide-cell"><img src="IMG_7157.jpeg" alt="バースデーイラスト 12"></div>
-           </div>
+          </div>
           <button class="slideshow-btn prev" id="slidePrev" aria-label="前の画像">
             <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
           </button>
@@ -825,6 +825,20 @@ function initSlideshow(){
   }
   document.getElementById('slidePrev').addEventListener('click',function(){ goTo(slideIndex-1); });
   document.getElementById('slideNext').addEventListener('click',function(){ goTo(slideIndex+1); });
+
+  /* 横長画像のみ中央揃え */
+  cells.forEach(function(cell){
+    var img=cell.querySelector('img');
+    function applyAlign(){
+      if(img.naturalWidth>img.naturalHeight){
+        cell.style.justifyContent='center';
+      } else {
+        cell.style.justifyContent='flex-start';
+      }
+    }
+    if(img.complete && img.naturalWidth){ applyAlign(); }
+    else { img.addEventListener('load', applyAlign); }
+  });
 
   /* スワイプ */
   var slideshow=document.getElementById('birthdaySlideshow');
